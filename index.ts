@@ -5,10 +5,10 @@ const splice = Array.prototype.splice;
 
 const getDefault = <T>(value: T | void | null, defaultValue: T): T => {
   if (typeof value === 'undefined' || value === null) {
-    return defaultValue
+    return defaultValue;
   }
-  return value
-}
+  return value;
+};
 
 const toString = Object.prototype.toString;
 function type<T>(obj: T) {
@@ -103,7 +103,7 @@ export class Context {
         }
       } else {
         if (typeof object === 'undefined' || object === null) {
-          object = nextObject = {} as T
+          object = nextObject = {} as T;
         }
         const nextValueForKey =
           type(object) === 'Map'
@@ -134,18 +134,18 @@ export class Context {
 
 const defaultCommands = {
   $push(value: any, nextObject: any[] | void, spec: any) {
-    nextObject = getDefault(nextObject, [] as any [])
+    nextObject = getDefault(nextObject, [] as any []);
     invariantPushAndUnshift(nextObject, spec, '$push');
     return value.length ? nextObject.concat(value) : nextObject;
   },
   $unshift(value: any, nextObject: any[] | void, spec: any) {
-    nextObject = getDefault(nextObject, [] as any [])
+    nextObject = getDefault(nextObject, [] as any []);
     invariantPushAndUnshift(nextObject, spec, '$unshift');
     return value.length ? value.concat(nextObject) : nextObject;
   },
   $splice(value: any, nextObject: any[] | void, spec: any, originalObject: any) {
     if (typeof nextObject === 'undefined' || nextObject === null) {
-      return []
+      return [];
     }
     invariantSplices(nextObject, spec);
     value.forEach((args: any) => {
@@ -173,7 +173,7 @@ const defaultCommands = {
   },
   $unset(value: any, nextObject: any, _spec: any, originalObject: any) {
     if (typeof nextObject === 'undefined' || nextObject === null) {
-      nextObject = {}
+      nextObject = {};
     }
     invariantSpecArray(value, '$unset');
     value.forEach((key: any) => {
