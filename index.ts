@@ -3,6 +3,13 @@ import * as invariant from 'invariant';
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 const splice = Array.prototype.splice;
 
+const getDefault = <T>(value: T | void | null, defaultValue: T): T => {
+  if (typeof value === 'undefined' || value === null) {
+    return defaultValue
+  }
+  return value
+}
+
 const toString = Object.prototype.toString;
 function type<T>(obj: T) {
   return (toString.call(obj) as string).slice(8, -1);
@@ -127,20 +134,19 @@ export class Context {
 
 const defaultCommands = {
   $push(value: any, nextObject: any[] | void, spec: any) {
-    if (typeof nextObject === 'undefined' || nextObject === null) {
-      nextObject = []
-    }
+    nextObject = getDefault(nextObject, [] as any [])
     invariantPushAndUnshift(nextObject, spec, '$push');
     return value.length ? nextObject.concat(value) : nextObject;
   },
-  $unshift(value: any, nextObject: any, spec: any) {
-    if (typeof nextObject === 'undefined' || nextObject === null) {
-      nextObject = []
-    }
+  $unshift(value: any, nextObject: any[] | void, spec: any) {
+    nextObject = getDefault(nextObject, [] as any [])
     invariantPushAndUnshift(nextObject, spec, '$unshift');
     return value.length ? value.concat(nextObject) : nextObject;
   },
-  $splice(value: any, nextObject: any, spec: any, originalObject: any) {
+  $splice(value: any, nextObject: any[] | void, spec: any, originalObject: any) {
+    if (typeof nextObject === 'undefined' || nextObject === null) {
+      return []
+    }
     invariantSplices(nextObject, spec);
     value.forEach((args: any) => {
       invariantSplice(args);
@@ -262,7 +268,7 @@ function invariantSpecArray(spec: any, command: any) {
 function invariantSplices(value: any, spec: any) {
   invariant(
     Array.isArray(value),
-    'Expected $splice target to be an array; got %s',
+    'Expected $splice target to be an array; got %s!',
     value,
   );
   invariantSplice(spec.$splice);

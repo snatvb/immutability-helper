@@ -98,6 +98,13 @@ describe('immutability-helper module', () => {
       expect(update([1, 4, 3], {$splice: [[1, 1, 2]]})).toEqual([1, 2, 3]);
       expect(update([5, 4, 9], {$splice: [[1, 1, 6, 7, 8]]})).toEqual([5, 6, 7, 8, 9]);
     });
+    it('splices deep variable property', () => {
+      type DeepArrayVariable = {
+        a?: { b?: { c?: number[] } }
+      }
+      const state: DeepArrayVariable = {}
+      expect(update(state, {a: {b: { c: {$splice: [[2]]} }}})).toEqual({a: {b: {c: []}}});
+    });
     it('does not mutate the original object', () => {
       const obj = Object.freeze([1, 4, 3]);
       expect(() => update(obj, {$splice: [[1, 1, 2]]})).not.toThrow();
