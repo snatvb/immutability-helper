@@ -339,7 +339,7 @@ myContext.update(/* args */);
 [travis-url]: https://travis-ci.org/kolodny/immutability-helper
 [coveralls-image]: https://img.shields.io/coveralls/kolodny/immutability-helper.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/kolodny/immutability-helper
-[downloads-image]: http://img.shields.io/npm/dm/immutability-helper.svg?style=flat-square
+[downloads-image]: https://img.shields.io/npm/dm/variable-immutability-helper.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/variable-immutability-helper
 [min-size-image]: https://badgen.net/bundlephobia/min/immutability-helper?label=minified
 [gzip-size-image]: https://badgen.net/bundlephobia/minzip/immutability-helper?label=gzip
