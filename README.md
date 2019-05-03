@@ -8,15 +8,15 @@ variable-immutability-helper
 [![Minified size][min-size-image]][bundlephobia-url]
 [![Gzip size][gzip-size-image]][bundlephobia-url]
 
+## variable-immutability-helper is fork of [immutability-helper](https://github.com/kolodny/immutability-helper)
+Why? Becouse i need immutable library for mutate state with deep nestead variable property like in ramda R.assocPath but with normal types.
+
 Mutate a copy of data without changing the original source
 
 Setup via NPM
 ```sh
 npm install variable-immutability-helper --save
 ```
-
-## variable-immutability-helper is fork of ['immutability-helper'](https://github.com/kolodny/immutability-helper)
-Why? Becouse i need immutable library for mutate state with deep nestead variable property like in ramda R.assocPath but with normal types.
 
 This is a drop-in replacement for [`react-addons-update`](https://facebook.github.io/react/docs/update.html):
 ```js
@@ -335,7 +335,7 @@ myContext.update(/* args */);
 
 [npm-image]: https://img.shields.io/npm/v/immutability-helper.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/variable-immutability-helper
-[travis-image]: https://img.shields.io/travis/snatvb/immutability-helper.svg?style=flat-square
+[travis-image]: https://travis-ci.org/snatvb/variable-immutability-helper.svg?style=flat-square
 [travis-url]: https://travis-ci.org/kolodny/immutability-helper
 [coveralls-image]: https://img.shields.io/coveralls/kolodny/immutability-helper.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/kolodny/immutability-helper
