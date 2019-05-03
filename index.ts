@@ -126,11 +126,17 @@ export class Context {
 }
 
 const defaultCommands = {
-  $push(value: any, nextObject: any, spec: any) {
+  $push(value: any, nextObject: any[] | void, spec: any) {
+    if (typeof nextObject === 'undefined' || nextObject === null) {
+      nextObject = []
+    }
     invariantPushAndUnshift(nextObject, spec, '$push');
     return value.length ? nextObject.concat(value) : nextObject;
   },
   $unshift(value: any, nextObject: any, spec: any) {
+    if (typeof nextObject === 'undefined' || nextObject === null) {
+      nextObject = []
+    }
     invariantPushAndUnshift(nextObject, spec, '$unshift');
     return value.length ? value.concat(nextObject) : nextObject;
   },

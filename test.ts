@@ -31,6 +31,13 @@ describe('immutability-helper module', () => {
     it('pushes', () => {
       expect(update([1], {$push: [7]})).toEqual([1, 7]);
     });
+    it('pushes to deep variable property', () => {
+      type DeepArrayVariable = {
+        a?: { b?: { c?: number[] } }
+      }
+      const state: DeepArrayVariable = {}
+      expect(update(state, {a: {b: { c: {$push: [7]} }}})).toEqual({a: { b: { c: [7] } }});
+    });
     it('does not mutate the original object', () => {
       const obj = Object.freeze([1]);
       expect(() => update(obj, {$push: [7]})).not.toThrow();
@@ -55,6 +62,13 @@ describe('immutability-helper module', () => {
   describe('$unshift', () => {
     it('unshifts', () => {
       expect(update([1], {$unshift: [7]})).toEqual([7, 1]);
+    });
+    it('unshifts to deep variable property', () => {
+      type DeepArrayVariable = {
+        a?: { b?: { c?: number[] } }
+      }
+      const state: DeepArrayVariable = {}
+      expect(update(state, {a: {b: { c: {$unshift: [7]} }}})).toEqual({a: { b: { c: [7] } }});
     });
     it('does not mutate the original object', () => {
       const obj = Object.freeze([1]);
