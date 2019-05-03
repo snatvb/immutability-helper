@@ -52,7 +52,7 @@
     "typescript": "3.2.2"
   },
   "dependencies": {
-    "invariant": "^2.2.4"
+    "invariant": "2.2.4"
   },
   "repository": {
     "type": "git",
