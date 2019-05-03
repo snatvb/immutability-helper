@@ -333,7 +333,7 @@ myContext.extend('$foo', function(value, original) {
 myContext.update(/* args */);
 ```
 
-[npm-image]: https://img.shields.io/npm/v/immutability-helper.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/variable-immutability-helper.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/variable-immutability-helper
 [travis-image]: https://travis-ci.org/snatvb/variable-immutability-helper.svg?style=flat-square
 [travis-url]: https://travis-ci.org/kolodny/immutability-helper
