@@ -147,6 +147,17 @@ describe('immutability-helper module', () => {
     it('sets', () => {
       expect(update({a: 'b'}, {$set: {c: 'd'}})).toEqual({c: 'd'});
     });
+    it('sets to deep undefiled', () => {
+      type DeepNullable = {
+        a?: {
+          b?: {
+            c: number,
+          }
+        }
+      }
+      const state: DeepNullable = {}
+      expect(update(state, {a: {b: {c: {$set: 1}}}})).toEqual({a: {b: {c: 1}}});
+    });
     it('does not mutate the original object', () => {
       const obj = Object.freeze({a: 'b'});
       expect(() => update(obj, {$set: {a: 'c'}})).not.toThrow();

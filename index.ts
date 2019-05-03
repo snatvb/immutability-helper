@@ -95,6 +95,9 @@ export class Context {
           nextObject = object;
         }
       } else {
+        if (typeof object === 'undefined' || object === null) {
+          object = nextObject = {} as T
+        }
         const nextValueForKey =
           type(object) === 'Map'
             ? this.update((object as any as Map<any, any>).get(key), spec[key])
@@ -108,7 +111,7 @@ export class Context {
           && !hasOwnProperty.call(object, key)
         ) {
           if (nextObject === object) {
-            nextObject = copy(object);
+            nextObject = copy(object as any);
           }
           if (type(nextObject) === 'Map') {
             (nextObject as any as Map<any, any>).set(key, nextValueForKey);
