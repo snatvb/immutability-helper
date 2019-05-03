@@ -336,11 +336,11 @@ myContext.update(/* args */);
 [npm-image]: https://img.shields.io/npm/v/variable-immutability-helper.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/variable-immutability-helper
 [travis-image]: https://travis-ci.org/snatvb/variable-immutability-helper.svg?style=flat-square
-[travis-url]: https://travis-ci.org/kolodny/immutability-helper
-[coveralls-image]: https://img.shields.io/coveralls/kolodny/immutability-helper.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/kolodny/immutability-helper
+[travis-url]: https://travis-ci.org/snatvb/variable-immutability-helper
+[coveralls-image]: https://img.shields.io/coveralls/snatvb/variable-immutability-helper.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/snatvb/variable-immutability-helper
 [downloads-image]: https://img.shields.io/npm/dm/variable-immutability-helper.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/variable-immutability-helper
 [min-size-image]: https://badgen.net/bundlephobia/min/immutability-helper?label=minified
-[gzip-size-image]: https://badgen.net/bundlephobia/minzip/immutability-helper?label=gzip
-[bundlephobia-url]: https://bundlephobia.com/result?p=immutability-helper
+[gzip-size-image]: https://badgen.net/bundlephobia/minzip/variable-immutability-helper?label=gzip
+[bundlephobia-url]: https://bundlephobia.com/result?p=variable-immutability-helper
