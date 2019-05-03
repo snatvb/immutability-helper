@@ -1,5 +1,5 @@
 {
-  "name": "@snatvb/immutability-helper",
+  "name": "variable-immutability-helper",
   "version": "3.0.0",
   "description": "mutate a copy of data without changing the original source",
   "main": "index.js",
@@ -39,7 +39,7 @@
   "keywords": [
     "immutability"
   ],
-  "author": "Moshe Kolodny",
+  "author": "Moshe Kolodny, Andrew Brighton",
   "license": "MIT",
   "devDependencies": {
     "@types/invariant": "2.2.29",
@@ -56,10 +56,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kolodny/immutability-helper.git"
+    "url": "git+https://github.com/snatvb/immutability-helper.git"
   },
   "bugs": {
-    "url": "https://github.com/kolodny/immutability-helper/issues"
+    "url": "https://github.com/snatvb/immutability-helper/issues"
   },
-  "homepage": "https://github.com/kolodny/immutability-helper#readme"
+  "homepage": "https://github.com/snatvb/immutability-helper#readme"
 }

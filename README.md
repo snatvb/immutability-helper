@@ -1,4 +1,4 @@
-immutability-helper
+variable-immutability-helper
 ===
 
 [![NPM version][npm-image]][npm-url]
@@ -12,13 +12,16 @@ Mutate a copy of data without changing the original source
 
 Setup via NPM
 ```sh
-npm install immutability-helper --save
+npm install variable-immutability-helper --save
 ```
+
+## variable-immutability-helper is fork of ['immutability-helper'](https://github.com/kolodny/immutability-helper)
+Why? Becouse i need immutable library for mutate state with deep nestead variable property like in ramda R.assocPath but with normal types.
 
 This is a drop-in replacement for [`react-addons-update`](https://facebook.github.io/react/docs/update.html):
 ```js
 // import update from 'react-addons-update';
-import update from 'immutability-helper';
+import update from 'variable-immutability-helper';
 
 const state1 = ['x'];
 const state2 = update(state1, {$push: ['y']}); // ['x', 'y']
@@ -72,7 +75,7 @@ the objects that haven't changed. Unfortunately, in today's JavaScript this can
 be cumbersome:
 
 ```js
-import update, { extend } from 'immutability-helper';
+import update, { extend } from 'variable-immutability-helper';
 
 const newData = extend(myData, {
   x: extend(myData.x, {
@@ -93,7 +96,7 @@ for bugs.
 this code easier. This code becomes:
 
 ```js
-import update from 'immutability-helper';
+import update from 'variable-immutability-helper';
 
 const newData = update(myData, {
   x: {y: {z: {$set: 7}}},
@@ -211,8 +214,8 @@ state.a.b.c = 1; // state would equal { a: { b: { c: 1 } } }
 ```
 
 Since javascript doesn't have this "feature", the same applies to
-`immutability-helper`. The reason why this is practically impossible in
-javascript and by extension `immutability-helper` is the following:
+`variable-immutability-helper`. The reason why this is practically impossible in
+javascript and by extension `variable-immutability-helper` is the following:
 
 ```js
 var state = {}
@@ -259,7 +262,7 @@ You can also choose to use the extend functionality to add an `$auto` and
 `$autoArray` command:
 
 ```js
-import update, { extend } from 'immutability-helper';
+import update, { extend } from 'variable-immutability-helper';
 
 extend('$auto', function(value, object) {
   return object ?
@@ -298,7 +301,7 @@ The main difference this module has with `react-addons-update` is that
 you can extend this to give it more functionality:
 
 ```js
-import update, { extend } from 'immutability-helper';
+import update, { extend } from 'variable-immutability-helper';
 
 extend('$addtax', function(tax, original) {
   return original + (tax * original);
@@ -319,7 +322,7 @@ If you don't want to mess around with the globally exported `update` function
 you can make a copy and work with that copy:
 
 ```js
-import { Context } from 'immutability-helper';
+import { Context } from 'variable-immutability-helper';
 
 const myContext = new Context();
 
@@ -331,13 +334,13 @@ myContext.update(/* args */);
 ```
 
 [npm-image]: https://img.shields.io/npm/v/immutability-helper.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/immutability-helper
-[travis-image]: https://img.shields.io/travis/kolodny/immutability-helper.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/variable-immutability-helper
+[travis-image]: https://img.shields.io/travis/snatvb/immutability-helper.svg?style=flat-square
 [travis-url]: https://travis-ci.org/kolodny/immutability-helper
 [coveralls-image]: https://img.shields.io/coveralls/kolodny/immutability-helper.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/kolodny/immutability-helper
 [downloads-image]: http://img.shields.io/npm/dm/immutability-helper.svg?style=flat-square
-[downloads-url]: https://npmjs.org/package/immutability-helper
+[downloads-url]: https://npmjs.org/package/variable-immutability-helper
 [min-size-image]: https://badgen.net/bundlephobia/min/immutability-helper?label=minified
 [gzip-size-image]: https://badgen.net/bundlephobia/minzip/immutability-helper?label=gzip
 [bundlephobia-url]: https://bundlephobia.com/result?p=immutability-helper
