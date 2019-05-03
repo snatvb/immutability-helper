@@ -215,6 +215,20 @@ describe('immutability-helper module', () => {
     it('unsets', () => {
       expect(update({a: 'b'}, {$unset: ['a']}).a).toBe(undefined as any);
     });
+    it('unshifts to deep variable property', () => {
+      type DeepObjectVariable = {
+        a?: { b?: { c?: number[] } }
+      }
+      const state: DeepObjectVariable = {a: { b: {} }}
+      expect(update(state, {a: {b: {$unset: ['c']}}})).toEqual({a: { b: {} }});
+    });
+    it('unshifts to deep variable property with empty object', () => {
+      type DeepObjectVariable = {
+        a?: { b?: { c?: number[] } }
+      }
+      const state: DeepObjectVariable = {}
+      expect(update(state, {a: {b: {$unset: ['c']}}})).toEqual({a: { b: {} }});
+    });
     it('removes the key from the object', () => {
       const removed = update({a: 'b'}, {$unset: ['a']});
       expect('a' in removed).toBe(false);
@@ -296,6 +310,15 @@ describe('immutability-helper module', () => {
     const applier = node => ({v: node.v * 2});
     it('applies', () => {
       expect(update({v: 2}, {$apply: applier})).toEqual({v: 4});
+    });
+    it('applies with deep variable properties', () => {
+      type DeepObjectVariable = {
+        a?: { b?: { c?: number } }
+      }
+      const state: DeepObjectVariable = {}
+      expect(update(state, {a: {b: {c: {
+        $apply: (x) => x ? x * x : -1,
+      }}}})).toEqual({a: { b: { c: -1 } }});
     });
     it('does not mutate the original object', () => {
       const obj = Object.freeze({v: 2});

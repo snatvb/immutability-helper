@@ -15,7 +15,7 @@ export declare type CustomCommands<T> = T & {
 export declare type Spec<T, C extends CustomCommands<object> = never> = (T extends (Array<infer U> | ReadonlyArray<infer U>) ? ArraySpec<U, C> : T extends (Map<infer K, infer V> | ReadonlyMap<infer K, infer V>) ? MapSpec<K, V> : T extends (Set<infer X> | ReadonlySet<infer X>) ? SetSpec<X> : T extends object ? ObjectSpec<T, C> : never) | {
     $set: T;
 } | {
-    $apply: (v: T) => T;
+    $apply: (v: T | void) => T;
 } | ((v: T) => T) | (C extends CustomCommands<infer O> ? O : never);
 declare type ArraySpec<T, C extends CustomCommands<object>> = {
     $push: T[];

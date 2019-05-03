@@ -166,6 +166,9 @@ const defaultCommands = {
     return nextObjectCopy;
   },
   $unset(value: any, nextObject: any, _spec: any, originalObject: any) {
+    if (typeof nextObject === 'undefined' || nextObject === null) {
+      nextObject = {}
+    }
     invariantSpecArray(value, '$unset');
     value.forEach((key: any) => {
       if (Object.hasOwnProperty.call(nextObject, key)) {
@@ -340,7 +343,7 @@ export type Spec<T, C extends CustomCommands<object> = never> =
       never
     )
   | { $set: T }
-  | { $apply: (v: T) => T }
+  | { $apply: (v: T | void) => T }
   | ((v: T) => T)
   | (C extends CustomCommands<infer O> ? O : never);
 
