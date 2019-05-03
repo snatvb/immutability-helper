@@ -12,7 +12,7 @@ const writeFile = promisify(fs.writeFile);
 const assert = require('assert');
 
 const code = `
-const update = require('@snatvb/immutability-helper');
+const update = require('immutability-helper');
 
 const state1 = ['x'];
 const state2 = update(state1, {$push: ['y']})
